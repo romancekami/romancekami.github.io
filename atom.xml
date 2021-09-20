@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://romancekami.github.io</id>
+    <title>romancekami的蜗居</title>
+    <updated>2021-09-20T16:43:11.696Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://romancekami.github.io"/>
+    <link rel="self" href="https://romancekami.github.io/atom.xml"/>
+    <subtitle>记录编程|生活...</subtitle>
+    <logo>https://romancekami.github.io/images/avatar.png</logo>
+    <icon>https://romancekami.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2021, romancekami的蜗居</rights>
+    <entry>
+        <title type="html"><![CDATA[测试2]]></title>
+        <id>https://romancekami.github.io/post/ce-shi-2/</id>
+        <link href="https://romancekami.github.io/post/ce-shi-2/">
+        </link>
+        <updated>2021-09-20T16:31:50.000Z</updated>
+        <content type="html"><![CDATA[<p>芜湖~</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[测试手动同步]]></title>
+        <id>https://romancekami.github.io/post/ce-shi-shou-dong-tong-bu/</id>
+        <link href="https://romancekami.github.io/post/ce-shi-shou-dong-tong-bu/">
+        </link>
+        <updated>2021-09-20T15:03:07.000Z</updated>
+        <content type="html"><![CDATA[<p>芜湖 起飞~</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gridea手动同步文件]]></title>
+        <id>https://romancekami.github.io/post/gridea-shou-dong-tong-bu-wen-jian/</id>
+        <link href="https://romancekami.github.io/post/gridea-shou-dong-tong-bu-wen-jian/">
+        </link>
+        <updated>2021-09-20T01:48:06.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/image-20210920093748814.png" alt="image-20210920093748814" loading="lazy"></figure>
+<p>我之前改变了gridea的站点源文件路径到G盘</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[git仓库下载]]></title>
+        <id>https://romancekami.github.io/post/gridea-tong-bu-bu-cheng-gong-orwu-fa-tong-bu-wen-ti-jie-jue/</id>
+        <link href="https://romancekami.github.io/post/gridea-tong-bu-bu-cheng-gong-orwu-fa-tong-bu-wen-ti-jie-jue/">
+        </link>
+        <updated>2021-09-14T09:33:23.000Z</updated>
+        <content type="html"><![CDATA[<p><mark>在Git Bash里面操作</mark><br>
+@LAPTOP-SVIC35JM MINGW64 ~ (master)              注释(#)：改变路径到G盘<br>
+$ cd /g/</p>
+<p>@LAPTOP-SVIC35JM MINGW64 /g                    #：在G盘创建一个叫gittest的文件<br>
+$ mkdir gittest</p>
+<p>@LAPTOP-SVIC35JM MINGW64 /g               #：改变路径到G盘的gittest文件夹里<br>
+$ cd gittest/</p>
+<p>@LAPTOP-SVIC35JM MINGW64 /g/gittest<br>
+$ git init<br>
+Initialized empty Git repository in G:/gittest/.git/<br>
+#： 初始化仓库，意思是在当前目录下。建立一个git的repo。你可以理解为一个叫 .git 的文件夹。</p>
+<p>@LAPTOP-SVIC35JM MINGW64 /g/gittest (master)<br>
+$ git clone https://github.com/Molunerfinn/PicGo.git      #：git clone仓库的命令<br>
+Cloning into 'PicGo'...<br>
+remote: Enumerating objects: 3805, done.<br>
+remote: Counting objects: 100% (523/523), done.<br>
+remote: Compressing objects: 100% (294/294), done.<br>
+remote: Total 3805 (delta 244), reused 433 (delta 197), pack-reused 3282<br>
+Receiving objects: 100% (3805/3805), 3.40 MiB | 2.65 MiB/s, done.<br>
+Resolving deltas: 100% (2238/2238), done.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[#9月10号快开学了]]></title>
+        <id>https://romancekami.github.io/post/9-yue-110-hao-kuai-kai-xue-liao/</id>
+        <link href="https://romancekami.github.io/post/9-yue-110-hao-kuai-kai-xue-liao/">
+        </link>
+        <updated>2021-09-10T00:05:16.000Z</updated>
+        <summary type="html"><![CDATA[<p>感觉自己又摸鱼了一个月😅</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>感觉自己又摸鱼了一个月😅</p>
+<!-- more -->
+<p>加油，支棱起来!!!💪<br>
+<img src="https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/%E4%B8%8B%E8%BD%BD%20(10).jpg" style='float:left'/><br>
+<br><br><br><br><br></p>
+<hr>
+<p>给自己b站踢球的小视频增加点播放量⚽️<br>
+https://www.bilibili.com/video/BV1JA411373B</p>
+<iframe src="//player.bilibili.com/player.html?aid=333353196&bvid=BV1JA411373B&cid=346022179&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>   
+<hr>
+<p>大神的akka 3000 （学完上面那个内马尔的墨西哥宽边帽起球后想学的动作）</p>
+<iframe width="310" height="150" src="https://www.youtube.com/embed/_RSQLrIWWdc?start=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[📃留言板]]></title>
+        <id>https://romancekami.github.io/post/liu-yan-ban/</id>
+        <link href="https://romancekami.github.io/post/liu-yan-ban/">
+        </link>
+        <updated>2021-08-08T08:52:37.000Z</updated>
+        <content type="html"><![CDATA[<center>欢迎朋友们在评论区留言👇</center>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[| 记录在南通职业大学读[数字媒体应用技术]专业的历程感受 | 持续更新欢迎与我交流( •̀ ω •́ )                        ]]></title>
+        <id>https://romancekami.github.io/post/在南通职业大学读[数字媒体应用技术]专业/</id>
+        <link href="https://romancekami.github.io/post/在南通职业大学读[数字媒体应用技术]专业/">
+        </link>
+        <updated>2021-08-06T09:31:40.000Z</updated>
+        <content type="html"><![CDATA[<p>欢迎各位评论或私信，也欢迎大佬解答一下文末我的疑问指点一下我，同时为文章点个赞或者喜欢，让更多朋友能看到，谢谢。<br>
+<em><strong>文章在第1个人经历板块中包含新生入学小提示欧</strong></em></p>
+<blockquote>
+<p><strong>文章将分为四个板块：</strong><br>
+1.个人经历与感受（答主性别男)<br>
+2.数字媒体专业简介 (于2020年9月入学）<br>
+3.未来发展与就业 (答主大一在海门)<br>
+4.我的一些疑问(主要是个人发展方面)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>1.个人经历与感受</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>记得刚高考完的我懵懂地来到这所大专读这个专业，我家在苏州，但为了读数字媒体应用技术这个专业来到了南通，我来前其实有种慌张的感觉，我不太爱说话，当时也不知道室友是怎么样的，不过后来发现还行，能处的来。（2021年6月9日晚备考英语四级中，等6月12日考完了再来更）</p>
+</li>
+<li>
+<p>四级考完了，第一此考，准备不充分，作文写完了居然没人提醒听力开始的？放了3题我才知道听力开始了，感觉这波无了，下学期再战...</p>
+<figure data-type="image" tabindex="1"><img src="https://pic2.zhimg.com/v2-7182850ac2b3e66f560546b2ad720819_b.jpeg" alt="img" loading="lazy"></figure>
+</li>
+</ul>
+<p>​                                                        傍晚的宿舍楼</p>
+<ul>
+<li><strong>接下来就是宿舍环节</strong>,我第一年来的是海门学院，大一的第2学期马上要结束了，还有几天就会搬到本部，希望本部的宿舍条件和网络好点，**海门这边宿舍条件有好有差，同一栋楼的男生宿舍，一楼有的宿舍是4人间，上床下桌。而我在三楼，8人间，挤的一批，不是上床下桌，只有两张长桌子在宿舍中央，一共10张床，8张床睡人，两张放行李箱之类的东西。学校经常有什么领导来查宿舍卫生，越整洁的宿舍越受班主任和领导欢迎，他们也不在乎什么实用与整洁的平衡，学校也就这格局了。</li>
+<li></li>
+</ul>
+<p><em><strong>新生开学小提示：</strong></em></p>
+<p><strong>1.开学报到时会有推销校园卡</strong>（就是那种学生用的SIM卡，就像联通的王卡)，可以不办的，不办理校园卡不会怎样，要是你不想办，他吓唬你就别鸟他。本部情况我不知道，海门这边校园网是移动中标了，所以办移动的人最多，来推销的基本也都是移动的，移动校园网刚开通的夜晚据说速度达到300M/s，但那晚之后就不行了，普遍反映用流量上网卡顿。（修正：评论有朋友是移动的校园网，回复移动用流量上网还行，难道是有好有坏？我没用过就先不评价了）</p>
+<p>联通的情况我不清楚，但价格由高到低（不算开学时那些带着杂七杂八活动优惠的卡，活动越多，注销起来越麻烦，但是校园卡肯定有活动）移动最贵好像是69元，联通居中49元（记得有两个价位的套餐），电信最便宜39元。<br>
+<img src="https://pic4.zhimg.com/v2-9e433042beab632766edbc817bbdbd17_b.jpeg" alt="img" loading="lazy"></p>
+<p>​                                                            学校傍晚还是挺好看的</p>
+<ul>
+<li>
+<p>我用的就是电信的，一个月39元（活动持续到我大三毕业，活动结束后就不止39元了，好像要79元一个月，感觉就不值了），校园网无限使用，不过注销好像只能在南通这边注销，不能异地注销，应该不限速但有设备限制，手机电脑只能连一个，如果连两个会被强制下线，当然你要是有GSWIFI之类的校园网路由器可以突破设备限制，但可能还是会经常掉线。。。</p>
+<p>流量的话是50个G校内流量（在校内用流量消耗的就是这个校内流量），20个G全国流量（这20G没用完的话会自动下月结转），所以有时候我一个月能有90G流量。（50G校内，20G全国，20G上月结转来的全国流量）</p>
+<p>海门校区里面有移动，联通，电信三家营业厅，学校里的电信营业厅你可能只在开学时见到里面有人，平时基本是锁门的。(门上有联系电话)所以开学办的话比较方便，不然只能打车去一个比较偏僻的电信营业厅里办，其它营业厅据说办不了这个校园卡，我也不知道是真是假，要办的话记得问清楚套餐。</p>
+<p>联通有时候会找学生兼职在营业厅里帮忙介绍一些业务，除了开学时，平时也基本是锁门的。</p>
+<p>移动营业厅里面总是有人，估计是因为招标时中标了，总得有个人看着，同时用的人多事也多。</p>
+<figure data-type="image" tabindex="2"><img src="https://pic2.zhimg.com/v2-32bda1215bed51dbd3431b2069ab61b5_b.jpeg" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>对了，海门宿舍里面墙壁上面有个<strong>固定的白色路由器，它只能无线连接</strong>，有线的网口没网，只是装饰用的。。。所以想拉网线在海门基本没机会了。。。当然你也可以不办理校园网，解决方法有买物联卡（流量卡），或者那种无线网卡，华为有个5G随身wifi pro价格上千。。。当然也有便宜的，但我没用过，没法评论。</p>
+<p><strong>2.开学需要U盘的话可以买闪迪（sandisk）的</strong>，b战测速各个型号速度都不错，基本没拉跨的，我买了3个了，官方店不用担心买到扩容盘。</p>
+<p><strong>3.海门这边可以去步行街</strong>（晚上有很多<strong>烧烤</strong>摊子），或者<strong>龙信广场</strong>玩玩，其它商圈我就不太了解了，我出去的少。</p>
+<figure data-type="image" tabindex="3"><img src="https://pic2.zhimg.com/v2-d7d92ddc2393c9b589110265753e4949_b.jpeg" alt="img" loading="lazy"></figure>
+</li>
+</ul>
+<p>​                                                      夜晚南京路足球场旁边风景不错</p>
+<ul>
+<li>
+<p><strong>4.如果喜欢踢足球的话</strong>，海门<strong>南京路桥</strong>那边有个免费的球场，场地缓震不行，上刺客13agp的话跑起来脚底会痛，所以基本只能上tf球鞋，有时候会有踢的好的，基本都是晚上来踢，从大叔到小伙子，学生都有。我有<strong>微信约球的群，喜欢踢足球的话可以私聊问我要一下。<strong>想踢水平高点的比赛还是要去外面，能点燃你的战斗之心。足球场旁边就有1个</strong>篮球场</strong>一共6个篮，只要不下雨，每天晚上都有人打，但足球就不是每个晚上都有人踢了，但不下雨的话，一周有3，4天肯定是有人来踢的。</p>
+<figure data-type="image" tabindex="4"><img src="https://pic4.zhimg.com/v2-38c98aee614b3ab9ba8a47f06916df8f_b.jpeg" alt="img" loading="lazy"></figure>
+<p>当然学校里也有篮球场（水泥地磨鞋）和足球场，海门和本部的足球场都是很烂的真草，坑坑洼洼的，下雨也许可以穿ag，平时基本只能tf。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>5.海门校区里面有个理发店</strong>，男生洗剪吹13元，女生记得是19，我理过感觉还行，比外面实惠一点，外面理发容易被宰，做个什么软化，再剪个头就200了，烫个头又200了。。。</p>
+</li>
+<li>
+<p><strong>6.大一最好把office三件套练好，计算机一级，英语3.5级考过，好好准备英语四级争取一次考过</strong>，垃圾活动少参加，学校的<strong>社团</strong>很受学校控制，甚至某个老师可以直接废除一个社团，什么活动缺人了，每个社团出两三个人，别去当<strong>社长</strong>，经常要写计划书，很烦。比如你喜欢踢足球，不一定要进足球社，先<strong>加足球社的群就行，<strong>你去踢球就会认识他们的。</strong>（我们当时退社要写800字申请欧）所以别随便加社团，你把握不住。</strong></p>
+</li>
+<li>
+<p>7.还有啥我想到再写，你们有啥想知道的也可以问我。</p>
+</li>
+</ul>
+<figure data-type="image" tabindex="5"><img src="https://pic1.zhimg.com/v2-8dab66490d0b4b1069968b9a17b185f4_b.jpeg" alt="img" loading="lazy"></figure>
+<ul>
+<li>
+<p><strong>继续写我的个人经历</strong>，大一上半学期答主基本都在画画，当然答主就是个混子，对画画提不起啥兴趣，因为没啥基础，根本画不过艺术生，答主打算去搞编程方向，然后大一上半学期一堆破事，什么政治社会实践活动，什么超星、智慧树网课（用油猴脚本看这种网课吧），字体设计(拿记号笔写大字可真离谱)等课浪费了答主太多时间。 大一下半学期排到了一门叫「人工智能」的课，这门课让我对学校彻底丧失希望，这个课90%的人上课都不听，当然我也不听，因为根本听不懂，排这个课的人就是个moron，班里95%的人一点编程基础都没有，听这个课就是混听老师吹牛，当然老师心理也不爽但没办法毕竟拿钱的。</p>
+<figure data-type="image" tabindex="6"><img src="https://pic4.zhimg.com/v2-6bc45a1f37c56c8bc1a38e278f80f123_b.jpeg" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>答主的大一就剩个暑假了，上了两个学期的课感觉就学了个ps，其它对我来说都是些没用的水课，希望我能在暑假里<strong>把前端三剑客好好学学，提升自己的coding能力</strong>，不然感觉真是在浪费时间**。**</p>
+<blockquote>
+<p><strong>2.数字媒体专业简介</strong></p>
+</blockquote>
+<p><strong>数字媒体专业分两个：</strong><br>
+<strong>数字媒体技术（大专叫数字媒体应用技术）和数字媒体艺术。</strong></p>
+<p><strong>数字媒体技术：</strong> <strong>是艺术和计算机的杂交专业</strong>，一般学校会让学ps(修图，位图处理),pr（做视频）,Adobe Illustrator（矢量图处理），3dmax（建模）,dw（写网页前端界面）等软件，（我大一就学了个ps,可以想象我大二会有多忙，大三可能就上学期上个一两门课之后就得去实习了）方向有网页前端，游戏制作，摄影，建模等。</p>
+<p><strong>我们学校</strong>的数字媒体应用技术专业其实是<strong>偏向平面设计（这个切记，你要搞摄影那你不用指望学校了，必自学），学校是搞艺术的，<strong>跟</strong>广告专业</strong>差不多，想<strong>学编程计算机还是去软件工程专业</strong>吧。</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>数字媒体艺术：</strong></p>
+</blockquote>
+<p>这个偏向艺术，最好用有绘画基础，要学ps,pr，maya，3dmax，c4d之类课程一般会有交互方面的ui设计，影视后期，摄影，三维建模等。</p>
+<p>数媒这个专业学的<strong>多而不精，<strong>其实想学什么要</strong>靠自己</strong>，学校根本靠不住，你只能把学校有限的资源利用起来，学校顶多带你入门，想学<strong>精通，想有一技之长，必须靠自己课余自学。</strong></p>
+<p><strong>这里给一下南职大20级数媒技专业的所有课表，共两张长图，21级的数学课可能会变成素描课，哪个失效了就换链接(这还不给文章点个👍哈哈)</strong></p>
+<pre><code> 百度云盘： 
+ https://pan.baidu.com/s/1NaZWp5cVhApAi91zr0d9rg 提取码:iiu4
+ 腾讯微云：
+ https://share.weiyun.com/jGiA2QhJ
+ 先锋云盘：
+ http://testcloud1.xfplay.com:20081/s/zKp8r5apcEsm28z
+ 天翼云盘：
+ https://cloud.189.cn/t/YfQNfeYVnm2i
+ 115网盘：
+ https://115.com/s/swn7t1a3nkg?password=xe98# 访问码:xe98
+</code></pre>
+<blockquote>
+<p><strong>3.未来发展与就业</strong></p>
+</blockquote>
+<p>**就业：**平面设计师、UI交互设计师、影视后期特效制作、安卓开发、摄影师、策划（比如婚庆策划）、建模师、游戏开发与策划、自媒体、动画制作、深度学习、大数据、广告策划，甚至是在政府部门、企事业单位从事文稿写作、视频节目策划、编导、制作工作和整合营销、媒体公关等工作。</p>
+<p><strong>未来发展：<strong>答主打算</strong>先转本</strong>，估计到时候要学一波数学，和计算机相关的知识，可能要学C语言。 答主自己也是<strong>打算走编程方向</strong>，毕竟其它的我一没基础二没兴趣（其实答主有点想当摄影师但这我得从0学起，之前想到做影视后期但听说加班很多，**不知道做特效啥的咋样？**期待大佬来解答）</p>
+<figure data-type="image" tabindex="7"><img src="https://pic1.zhimg.com/v2-89d418e0b8af4509ff66bb1d7f1cc6a0_b.jpeg" alt="img" loading="lazy"></figure>
+<blockquote>
+<p><strong>4.我的一些疑问 ：</strong></p>
+</blockquote>
+<p>①虽说<strong>将来打算搞编程</strong>但也不知道<strong>具体搞啥方向</strong>，挺迷茫的，打算先把最简单的前端三剑客学学，打下一定编程基础。<strong>同时也求大佬或者学长能给我点建议，无论是评论还是私信</strong>💕</p>
+<p>②<strong>是关于升学的，<strong>我也不太了解我们这个数字媒体应用技术专业</strong>转本</strong>是不是只能转计算机类的专业，还是能转去搞艺术类的专业？（因为我们这个专业既有艺术又有是计算机类）</p>
+<p>另外**接本和转本除了是否是全日制的本科的区别还有啥区别？**转本是去大学里再读两年，接本是可以一边工作一边上学，还是什么其它上法？</p>
+<pre><code class="language-markdown"> 最后非常感谢大家阅读，如果觉得不错，
+ 不妨点个赞或者喜欢，激励一下我。
+ 这篇文章写了我好几个小时哈哈🍖
+</code></pre>
+<hr>
+<blockquote>
+<p>21年8月6日更新</p>
+</blockquote>
+<p>问了南职大18届数媒技的学姐，她们那届数媒技是作为计算机专业的一个方向来学的，主要学偏硬件方面，c语言，php等。<br>
+而我们这届20级的数媒技是完全偏向艺术，平面设计方向的，更类似数媒艺。我并没有看到南职大有19届数媒的人，我有点怀疑南职大19届是不是没有数媒这个专业，（要是有19届的学长/学姐看到文章的话可以在评论区回复一下）也就是说我们20届和18届很可能算是两届小白鼠...<br>
+评论区有朋友查了资料，给出转本要转文/理科方向需要考什么，在此感谢。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[测试文章 看看目录能否显示]]></title>
+        <id>https://romancekami.github.io/post/ce-shi-wen-zhang-kan-kan-mu-lu-neng-fou-xian-shi/</id>
+        <link href="https://romancekami.github.io/post/ce-shi-wen-zhang-kan-kan-mu-lu-neng-fou-xian-shi/">
+        </link>
+        <updated>2021-08-03T03:02:29.000Z</updated>
+        <summary type="html"><![CDATA[<p>今天天气变化很快</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>今天天气变化很快</p>
+<!-- more -->
+<p><ul class="markdownIt-TOC">
+<li><a href="#%E6%88%91">#我</a></li>
+<li><a href="#%E4%BB%96">#他</a></li>
+<li><a href="#%E5%A5%B9">#她</a></li>
+<li><a href="#%E5%A5%B9-2">#她</a>
+<ul>
+<li><a href="#%E5%A4%9A%E4%BA%91-%E6%99%9A%E4%B8%8A%E9%9B%A8%E5%A4%A9">多云 晚上雨天</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h1 id="我">#我</h1>
+<p>下雨</p>
+<h1 id="他">#他</h1>
+<p>晴天</p>
+<h1 id="她">#她</h1>
+<p>多云 晚上雨天<br>
+next的来源<br>
+雨一直下</p>
+<blockquote>
+<p>空调声音有点大<br>
+晴天</p>
+</blockquote>
+<h1 id="她-2">#她</h1>
+<h2 id="多云-晚上雨天">多云 晚上雨天</h2>
+<p>雨一直下</p>
+<blockquote>
+<p>空调声音有点大</p>
+</blockquote>
+<hr>
+<ul>
+<li>sfsf
+<ul>
+<li>sdfsdf</li>
+</ul>
+</li>
+</ul>
+<p><a href="#%E6%88%91">返回目录</a><br>
+<a href="next%E7%9A%84%E6%9D%A5%E6%BA%90"><strong>next的来源</strong></a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[21年前半个暑假总结]]></title>
+        <id>https://romancekami.github.io/post/21前半个暑假总结/</id>
+        <link href="https://romancekami.github.io/post/21前半个暑假总结/">
+        </link>
+        <updated>2021-07-29T07:11:58.000Z</updated>
+        <summary type="html"><![CDATA[<p>一个小总结</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>一个小总结</p>
+<!-- more -->
+<p><code>目录</code><br>
+<ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%94%9F%E6%B4%BB">#生活</a></li>
+<li><a href="#%E5%AD%A6%E4%B9%A0">#学习</a></li>
+<li><a href="#%E6%88%90%E6%9E%9C">#成果</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h2 id="生活">#生活</h2>
+<p>这是我的第一篇博客，历史性的时刻♫</p>
+<p>7月，我爸妈晚上都在家监督我早点睡觉，但说句实话，安静的夜晚才是我头脑最清醒的时候，尤其是在10：30p.m.~2:30p.m.的时候，我现在基本是不得不在12点前睡觉，这导致我躺在床上根本睡不着，每个晚上要躺在床上一个多小时才能入睡，我淦。。。然后早上7点起来也没啥精神，沙发上又睡到8:30。。。但我觉得其实可以克服一下，7点起来强行刷个牙洗个脸说不定就精神了哈哈。<br>
+<img src="https://romancekami.github.io/post-images/1627946897501.png" alt="" loading="lazy"><br>
+因为父亲工作的一些变动，我感觉家里又穷了，这个学期的生活费越给越少，所以我也穷了。<br>
+这使我意识到当你年龄上去了，学习能力，记忆力，精力下来后，就是一个普通工具人走下坡路的时候了，这时候你的精力比不上年轻人，工资比年轻人高的多，你的青春、你的价值也已经被公司榨的差不多了，这时候你的替代品出现了，一个更年轻、精力更充沛的工具人准备取而代之，你也就不得不改变了，我感觉牛逼点的人都是充满斗志的，尤其是年轻的时候，更是想有所作为。</p>
+<h2 id="学习">#学习</h2>
+<p>说实话今年前半个暑假相比今年寒假我过的要稍微充实一点，但做的事情实在是太踏马少了，我总是在干些杂七杂八的事情，然后想做某些事情的时候中途老是开小差，没搞几分钟就看悬疑片/看ufc/看b站的视频去了，效率真的是太低了😭。</p>
+<p>我是个不太喜欢写计划的人，因为我知道写了我也基本完不成，不过感觉说不定给自己设置一个deadline，效率会提高一些。</p>
+<p>我现在写这篇博客的时候，生怕自己没写两笔就又去看b站的视频了，没办法，我喜欢的up主实在是太多，b站的评论区也都是人才，有的评论很好玩，有的评论很有深度。<br>
+b站从之前的一个我只在里面看番剧和足球视频的平台，变成现在含有直播、漫画、游戏、科技、娱乐各个板块融合的大平台，手机上原本简洁的粉色首页已经是越来越复杂，直到有一次更新，b站首页本来是双列的视频推荐居然变成了单列，我的第一反应是这tm是想搞啥？抖音？欧对，更像是油管，它的发展趋势确实朝着中国的油管发展，阿b还是变味了。当然我后来还是在设置里改回了双列。(好像跑题了)</p>
+<p>我的实际情况往往是这样的:<br>
+b站的视频实在是太好看了，博客明天再写吧。<br>
+b站的视频实在是太好看了，代码明天再写吧。<br>
+b站的视频实在是太好看了，英语明天再看吧。<br>
+.....................,   计算机二级模拟题明天再做吧。</p>
+<p>淦，踏马的学了个寂寞。。。赶紧把前端搞起来！</p>
+<h2 id="成果">#成果</h2>
+<p>胸弟们好像都学车去了，我没去，所以我得赶紧整点东西出来，开学时说不定还能发挥点价值。</p>
+<p>买了几张物联卡试水，今年移动依然不行，基本看不到移动的卡，电信去年是最好的，速度快同时也比移动便宜，但今年政策收紧，买了张电信的卡激活都只能看8月份能不能激活。</p>
+<pre><code class="language-markdown">试水物联卡 |完成中
+博客搭建 |完成中
+准备英语四级 |完成中
+准备计算机二级 |完成中
+学完前端三剑客，做两个小项目 |完成中
+</code></pre>
+<p>啊？怎么tm都是在完成中啊？一个成果都没有啊？</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://romancekami.github.io/post/hello-gridea/</id>
+        <link href="https://romancekami.github.io/post/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="http://fehey.com/">示例网站</a></p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+</feed>
