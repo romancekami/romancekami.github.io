@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://romancekami.github.io</id>
     <title>romancekami的蜗居</title>
-    <updated>2021-09-20T16:43:11.696Z</updated>
+    <updated>2021-09-20T16:44:18.391Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://romancekami.github.io"/>
     <link rel="self" href="https://romancekami.github.io/atom.xml"/>
@@ -10,24 +10,6 @@
     <logo>https://romancekami.github.io/images/avatar.png</logo>
     <icon>https://romancekami.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, romancekami的蜗居</rights>
-    <entry>
-        <title type="html"><![CDATA[测试2]]></title>
-        <id>https://romancekami.github.io/post/ce-shi-2/</id>
-        <link href="https://romancekami.github.io/post/ce-shi-2/">
-        </link>
-        <updated>2021-09-20T16:31:50.000Z</updated>
-        <content type="html"><![CDATA[<p>芜湖~</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[测试手动同步]]></title>
-        <id>https://romancekami.github.io/post/ce-shi-shou-dong-tong-bu/</id>
-        <link href="https://romancekami.github.io/post/ce-shi-shou-dong-tong-bu/">
-        </link>
-        <updated>2021-09-20T15:03:07.000Z</updated>
-        <content type="html"><![CDATA[<p>芜湖 起飞~</p>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[Gridea手动同步文件]]></title>
         <id>https://romancekami.github.io/post/gridea-shou-dong-tong-bu-wen-jian/</id>
