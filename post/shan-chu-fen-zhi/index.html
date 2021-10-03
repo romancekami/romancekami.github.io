@@ -8,7 +8,7 @@
 <meta name="keywords" content="romancekami的个人博客">
 <meta name="description" content="记录编程|生活...">
 <meta name="theme-color" content="#ced4da">
-<title>测试文章 看看目录能否显示 | romancekami的蜗居</title>
+<title>删除分支 | romancekami的蜗居</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/romancekami/romancekami.github.io@master/favicon.ico?v=1633232639922">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/romancekami/romancekami.github.io@master/media/css/gemini.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/romancekami/romancekami.github.io@master/media/fonts/font-awesome.css">
@@ -41,8 +41,8 @@
 
 
 
-  <meta name="description" content="测试文章 看看目录能否显示" />
-  <meta name="keywords" content="思考" />
+  <meta name="description" content="删除分支" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -206,8 +206,7 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/romancekami/romancekami.github.io@master/images/avatar.png"/>
@@ -301,198 +300,6 @@
   </div>
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li><a href="#%E6%88%91">#我</a></li>
-<li><a href="#%E4%BB%96">#他</a></li>
-<li><a href="#%E5%A5%B9">#她</a></li>
-<li><a href="#%E5%A5%B9-2">#她</a>
-<ul>
-<li><a href="#%E5%A4%9A%E4%BA%91-%E6%99%9A%E4%B8%8A%E9%9B%A8%E5%A4%A9">多云 晚上雨天</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -580,8 +387,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://romancekami.github.io/post/ce-shi-wen-zhang-kan-kan-mu-lu-neng-fou-xian-shi/">
-      测试文章 看看目录能否显示
+    <a class="post-title-link" href="https://romancekami.github.io/post/shan-chu-fen-zhi/">
+      删除分支
     </a>
   </h1>
   <div class="post-meta">
@@ -589,22 +396,9 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2021-08-03 11:02:29">2021-08-03</span>
+      <span class="publish-time" data-t="2021-10-03 11:43:25">2021-10-03</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://romancekami.github.io/tag/-0WGQLan8/">
-        <span>思考</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
@@ -613,53 +407,13 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>76<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>15<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>今天天气变化很快</p>
-<!-- more -->
-<p><ul class="markdownIt-TOC">
-<li><a href="#%E6%88%91">#我</a></li>
-<li><a href="#%E4%BB%96">#他</a></li>
-<li><a href="#%E5%A5%B9">#她</a></li>
-<li><a href="#%E5%A5%B9-2">#她</a>
-<ul>
-<li><a href="#%E5%A4%9A%E4%BA%91-%E6%99%9A%E4%B8%8A%E9%9B%A8%E5%A4%A9">多云 晚上雨天</a></li>
-</ul>
-</li>
-</ul>
-</p>
-<h1 id="我">#我</h1>
-<p>下雨</p>
-<h1 id="他">#他</h1>
-<p>晴天</p>
-<h1 id="她">#她</h1>
-<p>多云 晚上雨天<br>
-next的来源<br>
-雨一直下</p>
-<blockquote>
-<p>空调声音有点大<br>
-晴天</p>
-</blockquote>
-<h1 id="她-2">#她</h1>
-<h2 id="多云-晚上雨天">多云 晚上雨天</h2>
-<p>雨一直下</p>
-<blockquote>
-<p>空调声音有点大</p>
-</blockquote>
-<hr>
-<ul>
-<li>sfsf
-<ul>
-<li>sdfsdf</li>
-</ul>
-</li>
-</ul>
-<p><a href="#%E6%88%91">返回目录</a><br>
-<a href="next%E7%9A%84%E6%9D%A5%E6%BA%90"><strong>next的来源</strong></a></p>
+              <p>删除分支后的测试看是否能够成功。</p>
 
             </div>
             
@@ -672,7 +426,7 @@ next的来源<br>
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://romancekami.github.io/post/ce-shi-wen-zhang-kan-kan-mu-lu-neng-fou-xian-shi/" title="测试文章 看看目录能否显示">https://romancekami.github.io/post/ce-shi-wen-zhang-kan-kan-mu-lu-neng-fou-xian-shi/</a>
+      <a href="https://romancekami.github.io/post/shan-chu-fen-zhi/" title="删除分支">https://romancekami.github.io/post/shan-chu-fen-zhi/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -681,21 +435,15 @@ next的来源<br>
   </ul>
   <div class="tags">
     
-      <a href="https://romancekami.github.io/tag/-0WGQLan8/"># 思考</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="| 记录在南通职业大学读[数字媒体应用技术]专业的历程感受 | 持续更新欢迎与我交流( •̀ ω •́ )                        " href="https://romancekami.github.io/post/在南通职业大学读[数字媒体应用技术]专业/">| 记录在南通职业大学读[数字媒体应用技术]专业的历程感受 | 持续更新欢迎与我交流( •̀ ω •́ )                        </a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="| 记录在南通职业大学读[数字媒体应用技术]专业的历程感受 | 持续更新欢迎与我交流( •̀ ω •́ )                        " href="https://romancekami.github.io/post/在南通职业大学读[数字媒体应用技术]专业/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="21年前半个暑假总结" href="https://romancekami.github.io/post/21前半个暑假总结/">21年前半个暑假总结</a>
-        <a class="nav-mobile-next" title="21年前半个暑假总结" href="https://romancekami.github.io/post/21前半个暑假总结/">下一篇</a>
+        <a class="nav-pc-next" title="what&#39;s up?" href="https://romancekami.github.io/post/whats-up/">what&#39;s up?</a>
+        <a class="nav-mobile-next" title="what&#39;s up?" href="https://romancekami.github.io/post/whats-up/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
