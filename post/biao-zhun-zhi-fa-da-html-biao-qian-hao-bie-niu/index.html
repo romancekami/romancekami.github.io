@@ -8,7 +8,7 @@
 <meta name="keywords" content="romancekami的个人博客">
 <meta name="description" content="记录编程|生活...">
 <meta name="theme-color" content="#ced4da">
-<title>21年前半个暑假总结 | romancekami的蜗居</title>
+<title>标准指法打HTML标签好别扭 | romancekami的蜗居</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/romancekami/romancekami.github.io@master/favicon.ico?v=1633885255303">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/romancekami/romancekami.github.io@master/media/css/gemini.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/romancekami/romancekami.github.io@master/media/fonts/font-awesome.css">
@@ -41,8 +41,8 @@
 
 
 
-  <meta name="description" content="21年前半个暑假总结" />
-  <meta name="keywords" content="生活" />
+  <meta name="description" content="标准指法打HTML标签好别扭" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -206,8 +206,7 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/romancekami/romancekami.github.io@master/images/avatar.png"/>
@@ -301,197 +300,6 @@
   </div>
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E7%94%9F%E6%B4%BB">#生活</a></li>
-<li><a href="#%E5%AD%A6%E4%B9%A0">#学习</a></li>
-<li><a href="#%E6%88%90%E6%9E%9C">#成果</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -579,8 +387,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://romancekami.github.io/post/21前半个暑假总结/">
-      21年前半个暑假总结
+    <a class="post-title-link" href="https://romancekami.github.io/post/biao-zhun-zhi-fa-da-html-biao-qian-hao-bie-niu/">
+      标准指法打HTML标签好别扭
     </a>
   </h1>
   <div class="post-meta">
@@ -588,76 +396,31 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2021-07-29 15:11:58">2021-07-29</span>
+      <span class="publish-time" data-t="2021-10-11 00:48:38">2021-10-11</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://romancekami.github.io/tag/i97XQhNYe/">
-        <span>生活</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>4<span class="language" data-lan="minute">分钟</span></span>
+      <span>1<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1037<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>24<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>一个小总结</p>
-<!-- more -->
-<p><code>目录</code><br>
-<ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E7%94%9F%E6%B4%BB">#生活</a></li>
-<li><a href="#%E5%AD%A6%E4%B9%A0">#学习</a></li>
-<li><a href="#%E6%88%90%E6%9E%9C">#成果</a></li>
-</ul>
-</li>
-</ul>
-</p>
-<h2 id="生活">#生活</h2>
-<p>这是我的第一篇博客，历史性的时刻♫</p>
-<p>7月，我爸妈晚上都在家监督我早点睡觉，但说句实话，安静的夜晚才是我头脑最清醒的时候，尤其是在10：30p.m.~2:30p.m.的时候，我现在基本是不得不在12点前睡觉，这导致我躺在床上根本睡不着，每个晚上要躺在床上一个多小时才能入睡，我淦。。。然后早上7点起来也没啥精神，沙发上又睡到8:30。。。但我觉得其实可以克服一下，7点起来强行刷个牙洗个脸说不定就精神了哈哈。<br>
-<img src="https://romancekami.github.io/post-images/1627946897501.png" alt="" loading="lazy"><br>
-因为父亲工作的一些变动，我感觉家里又穷了，这个学期的生活费越给越少，所以我也穷了。<br>
-这使我意识到当你年龄上去了，学习能力，记忆力，精力下来后，就是一个普通工具人走下坡路的时候了，这时候你的精力比不上年轻人，工资比年轻人高的多，你的青春、你的价值也已经被公司榨的差不多了，这时候你的替代品出现了，一个更年轻、精力更充沛的工具人准备取而代之，你也就不得不改变了，我感觉牛逼点的人都是充满斗志的，尤其是年轻的时候，更是想有所作为。</p>
-<h2 id="学习">#学习</h2>
-<p>说实话今年前半个暑假相比今年寒假我过的要稍微充实一点，但做的事情实在是太踏马少了，我总是在干些杂七杂八的事情，然后想做某些事情的时候中途老是开小差，没搞几分钟就看悬疑片/看ufc/看b站的视频去了，效率真的是太低了😭。</p>
-<p>我是个不太喜欢写计划的人，因为我知道写了我也基本完不成，不过感觉说不定给自己设置一个deadline，效率会提高一些。</p>
-<p>我现在写这篇博客的时候，生怕自己没写两笔就又去看b站的视频了，没办法，我喜欢的up主实在是太多，b站的评论区也都是人才，有的评论很好玩，有的评论很有深度。<br>
-b站从之前的一个我只在里面看番剧和足球视频的平台，变成现在含有直播、漫画、游戏、科技、娱乐各个板块融合的大平台，手机上原本简洁的粉色首页已经是越来越复杂，直到有一次更新，b站首页本来是双列的视频推荐居然变成了单列，我的第一反应是这tm是想搞啥？抖音？欧对，更像是油管，它的发展趋势确实朝着中国的油管发展，阿b还是变味了。当然我后来还是在设置里改回了双列。(好像跑题了)</p>
-<p>我的实际情况往往是这样的:<br>
-b站的视频实在是太好看了，博客明天再写吧。<br>
-b站的视频实在是太好看了，代码明天再写吧。<br>
-b站的视频实在是太好看了，英语明天再看吧。<br>
-.....................,   计算机二级模拟题明天再做吧。</p>
-<p>淦，踏马的学了个寂寞。。。赶紧把前端搞起来！</p>
-<h2 id="成果">#成果</h2>
-<p>胸弟们好像都学车去了，我没去，所以我得赶紧整点东西出来，开学时说不定还能发挥点价值。</p>
-<p>买了几张物联卡试水，今年移动依然不行，基本看不到移动的卡，电信去年是最好的，速度快同时也比移动便宜，但今年政策收紧，买了张电信的卡激活都只能看8月份能不能激活。</p>
-<pre><code class="language-markdown">试水物联卡 |完成中
-博客搭建 |完成中
-准备英语四级 |完成中
-准备计算机二级 |完成中
-学完前端三剑客，做两个小项目 |完成中
-</code></pre>
-<p>啊？怎么tm都是在完成中啊？一个成果都没有啊？</p>
+              <p>😵<br>
+<img src="https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/%E6%89%93%E5%AD%97%E6%AD%A3%E7%A1%AE%E4%BD%8D%E7%BD%AE.jpg" alt="别扭" loading="lazy"><br>
+<strong>加粗</strong><br>
+<em>倾斜</em><br>
+<del>删除</del><br>
+<ins>下划线</ins><br>
+https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/打字正确位置.jpg<br>
+<img src="https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/打字正确位置.jpg"/></p>
 
             </div>
             
@@ -670,7 +433,7 @@ b站的视频实在是太好看了，英语明天再看吧。<br>
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://romancekami.github.io/post/21前半个暑假总结/" title="21年前半个暑假总结">https://romancekami.github.io/post/21前半个暑假总结/</a>
+      <a href="https://romancekami.github.io/post/biao-zhun-zhi-fa-da-html-biao-qian-hao-bie-niu/" title="标准指法打HTML标签好别扭">https://romancekami.github.io/post/biao-zhun-zhi-fa-da-html-biao-qian-hao-bie-niu/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -679,21 +442,15 @@ b站的视频实在是太好看了，英语明天再看吧。<br>
   </ul>
   <div class="tags">
     
-      <a href="https://romancekami.github.io/tag/i97XQhNYe/"># 生活</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="测试文章 看看目录能否显示" href="https://romancekami.github.io/post/ce-shi-wen-zhang-kan-kan-mu-lu-neng-fou-xian-shi/">测试文章 看看目录能否显示</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="测试文章 看看目录能否显示" href="https://romancekami.github.io/post/ce-shi-wen-zhang-kan-kan-mu-lu-neng-fou-xian-shi/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Hello Gridea" href="https://romancekami.github.io/post/hello-gridea/">Hello Gridea</a>
-        <a class="nav-mobile-next" title="Hello Gridea" href="https://romancekami.github.io/post/hello-gridea/">下一篇</a>
+        <a class="nav-pc-next" title="Gridea手动同步文件" href="https://romancekami.github.io/post/gridea-shou-dong-tong-bu-wen-jian/">Gridea手动同步文件</a>
+        <a class="nav-mobile-next" title="Gridea手动同步文件" href="https://romancekami.github.io/post/gridea-shou-dong-tong-bu-wen-jian/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://romancekami.github.io</id>
     <title>romancekami的蜗居</title>
-    <updated>2021-10-03T04:35:13.766Z</updated>
+    <updated>2021-10-10T17:01:06.398Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://romancekami.github.io"/>
     <link rel="self" href="https://romancekami.github.io/atom.xml"/>
@@ -10,6 +10,22 @@
     <logo>https://romancekami.github.io/images/avatar.png</logo>
     <icon>https://romancekami.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, romancekami的蜗居</rights>
+    <entry>
+        <title type="html"><![CDATA[标准指法打HTML标签好别扭]]></title>
+        <id>https://romancekami.github.io/post/biao-zhun-zhi-fa-da-html-biao-qian-hao-bie-niu/</id>
+        <link href="https://romancekami.github.io/post/biao-zhun-zhi-fa-da-html-biao-qian-hao-bie-niu/">
+        </link>
+        <updated>2021-10-10T16:48:38.000Z</updated>
+        <content type="html"><![CDATA[<p>😵<br>
+<img src="https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/%E6%89%93%E5%AD%97%E6%AD%A3%E7%A1%AE%E4%BD%8D%E7%BD%AE.jpg" alt="别扭" loading="lazy"><br>
+<strong>加粗</strong><br>
+<em>倾斜</em><br>
+<del>删除</del><br>
+<ins>下划线</ins><br>
+https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/打字正确位置.jpg<br>
+<img src="https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/打字正确位置.jpg"/></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Gridea手动同步文件]]></title>
         <id>https://romancekami.github.io/post/gridea-shou-dong-tong-bu-wen-jian/</id>
