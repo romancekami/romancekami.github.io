@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://romancekami.github.io</id>
     <title>romancekami的蜗居</title>
-    <updated>2022-02-08T13:50:32.376Z</updated>
+    <updated>2022-02-08T14:02:35.402Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://romancekami.github.io"/>
     <link rel="self" href="https://romancekami.github.io/atom.xml"/>
@@ -57,13 +57,34 @@ gridea-theme-next主题的issue里面有相关的问题，主题的作者和issu
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Gridea手动同步文件]]></title>
+        <title type="html"><![CDATA[Gridea如何用git手动同步文件]]></title>
         <id>https://romancekami.github.io/post/gridea-shou-dong-tong-bu-wen-jian/</id>
         <link href="https://romancekami.github.io/post/gridea-shou-dong-tong-bu-wen-jian/">
         </link>
         <updated>2021-09-20T01:48:06.000Z</updated>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/image-20210920093748814.png" alt="image-20210920093748814" loading="lazy"></figure>
-<p>我之前改变了gridea的站点源文件路径到G盘</p>
+        <summary type="html"><![CDATA[<p>研究了一下Gridea如何用git手动同步文件</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>研究了一下Gridea如何用git手动同步文件</p>
+<!-- more -->
+<figure data-type="image" tabindex="1"><img src="https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/image-20210920093748814.png" alt="image-20210920093748814" loading="lazy"></figure>
+<p>我之前改变了gridea的站点源文件路径到G盘<br>
+随手写了一个文章然后gridea里保存一下 发现它到了这个地方</p>
+<figure data-type="image" tabindex="2"><img src="https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/image-20210920101209313.png" alt="image-20210920101209313" loading="lazy"></figure>
+<p>然后同步了一下发现它到了一个文件夹里同时在里面生成了一个html文件</p>
+<figure data-type="image" tabindex="3"><img src="https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/image-20210920103522085.png" alt="image-20210920103522085" loading="lazy"></figure>
+<p>我返回了一下路径 看到这里有个.git文件</p>
+<figure data-type="image" tabindex="4"><img src="https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/image-20210920104707536.png" alt="1" loading="lazy"></figure>
+<p>那么它是怎么把G:\博客源文件\posts里的md文件 搞到G:\博客源文件\output\post 里面并生成一个html文件的呢 所以到这边我就不知道该怎么实现手动同步了 它应该是在这个.git文件下用git push等命令同步到github仓库里面的</p>
+<p>gridea点击生成之后会将md文件编译成html，具体用到的技术可能就是markdownIt或者marked等js框架，确实是在含有.git文件目录进行git push，具体操作步骤就是：</p>
+<ol>
+<li>在\output文件夹下右键git bash或者使用cmd cd到此目录下都行</li>
+<li>执行git add .命令</li>
+<li>执行git commit -m 'COMMIT'命令</li>
+<li>最后git push origin main</li>
+</ol>
+<hr>
+<p>此外如何如何一起同步自己的静态文件呢？我在gridea官网的faq中看到：<br>
+<img src="https://gitee.com/romancekami/gitee_tuchuang/raw/master/images/202202082200430.png" alt="芜湖~" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
