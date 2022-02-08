@@ -2191,7 +2191,9 @@ p > code {
     font-weight: initial;
     margin-top: 10px;
     font-size: 13px;
-    color:#343a40;.box-shadow-wrapper {
+    color:#343a40;.bg-img img {
+        filter: blur(30px)
+      }.box-shadow-wrapper {
       box-shadow: none !important;
     }body {
       cursor: default;
