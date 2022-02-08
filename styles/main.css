@@ -2192,7 +2192,7 @@ p > code {
     margin-top: 10px;
     font-size: 13px;
     color:#343a40;.bg-img img {
-        filter: blur(30px)
+        filter: blur(0.2px)
       }.box-shadow-wrapper {
       box-shadow: none !important;
     }body {
