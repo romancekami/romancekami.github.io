@@ -9,7 +9,7 @@
 <meta name="description" content="记录编程|生活...">
 <meta name="theme-color" content="#ced4da">
 <title>romancekami的蜗居</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/romancekami/romancekami.github.io@master/favicon.ico?v=1648612069212">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/romancekami/romancekami.github.io@master/favicon.ico?v=1648612505024">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/romancekami/romancekami.github.io@master/media/css/gemini.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/romancekami/romancekami.github.io@master/media/fonts/font-awesome.css">
 <link
@@ -206,19 +206,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">10</span>
+        <span class="site-item-stat-count">11</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-count">4</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-count">4</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -309,6 +309,10 @@
           <small class="language" data-lan="tag">标签</small>
         </h2>
       </div>
+      
+      
+      
+      
       
       
       
@@ -633,6 +637,249 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://romancekami.github.io/post/lun-bo-tu-wen-ti/"" data-c="
+          &lt;p&gt;源码容纳轮播图的&lt;code&gt;&amp;lt;div id=&amp;quot;wrap&amp;quot;&amp;gt;&lt;/code&gt;的宽度width是1226px定死的，但我这边因为轮播图是作为网页中的一部分，同时希望兼顾宽屏显示所以宽度width是给的60%，我把js里的往左移动的代码改成了oImgList.style.left = index * -100 + &amp;quot;%&amp;quot;。&lt;br&gt;
+但是最后轮播的效果不对（轮播的区域没法正常显示一张图，会有部分后面的图片），**我怀疑是不是自己的几张图大小是不完全一样的，所以导致了这个问题？**我自己看了css改了一点结果也不太行，所以来向您求助了。&lt;br&gt;
+&lt;img src=&#34;https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/202203301143179.jpg&#34; alt=&#34;异常图片&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+html和js的代码如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;zh-cn&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot; /&amp;gt;
+    &amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;IE=edge&amp;quot; /&amp;gt;
+    &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0&amp;quot; /&amp;gt;
+    &amp;lt;title&amp;gt;轮播图&amp;lt;/title&amp;gt;
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;lunbotu.css&amp;quot;&amp;gt;
+    &amp;lt;script&amp;gt;
+        window.addEventListener(&amp;quot;load&amp;quot;,function() {
+            // 获取左右按钮和图片列表
+            let oLeft = document.querySelector(&amp;quot;.left&amp;quot;);
+            let oRight = document.querySelector(&amp;quot;.right&amp;quot;);
+            let oImgList = document.querySelector(&amp;quot;.img-list&amp;quot;);
+
+            // 克隆第一张图片
+            let clonefirstImg = oImgList.firstElementChild.cloneNode();
+            // 将第一张图片添加至图片列表的末尾
+            oImgList.appendChild(clonefirstImg);
+
+            // 图片索引 代表当前是第几张图片  index:0代表第一张图片
+            let index = 0;
+
+            // 设置函数节流锁
+            let lock = true;
+            function handleRightBtn() {
+                if (!lock) return;
+                index++;
+                oImgList.style.left = index * -100 + &amp;quot;%&amp;quot;;
+                // 为什么要加过渡? 因为切换到了最后一张假图时会将过渡去掉
+                oImgList.style.transition = &amp;quot;0.5s ease&amp;quot;;
+
+                if (index === 5) {
+                index = 0;
+                setTimeout(() =&amp;gt; {
+                    oImgList.style.left = 0;
+                    // 取消过渡 500毫秒之后切换第一张
+                    oImgList.style.transition = &amp;quot;none&amp;quot;;
+                }, 500);
+                }
+
+                // 设置小圆点的高亮
+                setCircles();
+                // 关锁
+                lock = false;
+                setTimeout(() =&amp;gt; {
+                lock = true;
+                }, 500);
+            }
+
+            // 右按钮的实现
+            oRight.addEventListener(&amp;quot;click&amp;quot;, handleRightBtn);
+
+            // 左按钮的实现  瞬间切换到假图然后拉到真实最后一张图片
+            oLeft.addEventListener(&amp;quot;click&amp;quot;, () =&amp;gt; {
+                if (!lock) return;
+                index--;
+                if (index === -1) {
+                oImgList.style.left = 5 * -100 + &amp;quot;%&amp;quot;;
+                oImgList.style.transition = &amp;quot;none&amp;quot;;
+                index = 4;
+                setTimeout(() =&amp;gt; {
+                    oImgList.style.left = index * -100 + &amp;quot;%&amp;quot;;
+                    oImgList.style.transition = &amp;quot;0.5s ease&amp;quot;;
+                }, 0);
+                } else {
+                oImgList.style.left = index * -100 + &amp;quot;%&amp;quot;;
+                }
+
+                // 设置小圆点的高亮
+                setCircles();
+
+                lock = false;
+                setTimeout(() =&amp;gt; {
+                lock = true;
+                }, 500);
+            });
+
+            // 获取五个小圆点
+            const circles = document.querySelectorAll(&amp;quot;.circle&amp;quot;);
+
+            // 小圆点高亮的显示
+            function setCircles() {
+                for (let i = 0; i &amp;lt; circles.length; i++) {
+                if (i === index) {
+                    circles[i].classList.add(&amp;quot;active&amp;quot;);
+                } else {
+                    circles[i].classList.remove(&amp;quot;active&amp;quot;);
+                }
+                }
+            }
+
+            // 小圆点点击切换图片 使用事件代理
+            const oCircle = document.querySelector(&amp;quot;.circle-list&amp;quot;);
+            oCircle.addEventListener(&amp;quot;click&amp;quot;, (e) =&amp;gt; {
+                // 当我点击小圆点的时候
+                if (e.target.nodeName.toLowerCase() === &amp;quot;li&amp;quot;) {
+                // 当前元素的data-n对应得值 和index一一对应
+                const n = Number(e.target.getAttribute(&amp;quot;data-n&amp;quot;));
+                index = n;
+                setCircles();
+                oImgList.style.transition = &amp;quot;0.5s ease&amp;quot;;
+                oImgList.style.left = index * -100 + &amp;quot;%&amp;quot;;
+                }
+            });
+
+            // 自动轮播
+            let autoplay = setInterval(handleRightBtn, 2000);
+            const oWrap = document.getElementById(&amp;quot;wrap&amp;quot;);
+            // 移入停止轮播
+            oWrap.addEventListener(&amp;quot;mouseenter&amp;quot;, () =&amp;gt; {
+                clearInterval(autoplay);
+            });
+            // 移出继续轮播
+            oWrap.addEventListener(&amp;quot;mouseleave&amp;quot;, () =&amp;gt; {
+                // 设表先关
+                clearInterval(autoplay);
+                autoplay = setInterval(handleRightBtn, 2000);
+            });
+        })      
+    &amp;lt;/script&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+    &amp;lt;!-- 轮播图 --&amp;gt;
+    &amp;lt;div id=&amp;quot;wrap&amp;quot;&amp;gt;
+        &amp;lt;div class=&amp;quot;img-list&amp;quot;&amp;gt;
+            &amp;lt;img src=&amp;quot;https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/202203301016900.png&amp;quot;/&amp;gt;
+            &amp;lt;img src=&amp;quot;https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/202203301016729.jpeg&amp;quot; /&amp;gt;
+            &amp;lt;img src=&amp;quot;https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/202203301017505.jpg&amp;quot; /&amp;gt;
+            &amp;lt;img src=&amp;quot;https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/202203301016872.jpeg&amp;quot; /&amp;gt;
+            &amp;lt;img src=&amp;quot;https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/202203301017454.jpg&amp;quot;/&amp;gt;
+        &amp;lt;/div&amp;gt;
+
+        &amp;lt;!-- 小箭头 --&amp;gt;
+        &amp;lt;div class=&amp;quot;arrow&amp;quot;&amp;gt;
+            &amp;lt;a href=&amp;quot;javascript:;&amp;quot; class=&amp;quot;left&amp;quot;&amp;gt;&amp;amp;gt;&amp;lt;/a&amp;gt;
+            &amp;lt;a href=&amp;quot;javascript:;&amp;quot; class=&amp;quot;right&amp;quot;&amp;gt;&amp;amp;lt;&amp;lt;/a&amp;gt;
+        &amp;lt;/div&amp;gt;
+
+        &amp;lt;!-- 小圆点 --&amp;gt;
+        &amp;lt;ul class=&amp;quot;circle-list&amp;quot;&amp;gt;
+            &amp;lt;li class=&amp;quot;circle active&amp;quot; data-n=&amp;quot;0&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
+            &amp;lt;li class=&amp;quot;circle&amp;quot; data-n=&amp;quot;1&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
+            &amp;lt;li class=&amp;quot;circle&amp;quot; data-n=&amp;quot;2&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
+            &amp;lt;li class=&amp;quot;circle&amp;quot; data-n=&amp;quot;3&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
+            &amp;lt;li class=&amp;quot;circle&amp;quot; data-n=&amp;quot;4&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
+        &amp;lt;/ul&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;css的代码如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/* 轮播图 */
+* {
+    margin: 0;
+    padding: 0;
+}
+#wrap ul {
+    list-style: none;
+}
+#wrap {
+    display: flex;
+    position: relative;
+    background-color: rgb(109, 114, 112);
+    width: 60%;
+    height: 400px;
+    margin-right: 1.4%;
+    margin-left: 1.4%;
+    margin: auto;
+    /* 空间有剩余时扩大轮播图填充剩余 */
+    flex-grow: 1;
+    overflow: hidden;
+}
+#wrap .img-list {
+    display: flex;
+    position: relative;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s ease;
+}
+
+#wrap .img-list img{
+    width: 100%;
+    cursor: pointer;
+}
+
+#wrap a {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: block;
+    width: 40px;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    user-select: none;
+    font-size: 30px;
+    text-align: center;
+    line-height: 70px;
+    text-decoration: none;
+}
+
+#wrap a.left {
+    left: 0;
+}
+
+#wrap a.right {
+    right: 0;
+}
+
+.circle-list {
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 240px;
+    height: 40px;
+    z-index: 8;
+}
+.circle-list &amp;gt; .circle {
+    margin: 0 5px;
+    width: 30px;
+    height: 30px;
+    background-color: #ecf0f1;
+    border-radius: 50%;
+}
+
+.circle-list &amp;gt; .circle.active {
+    background-color: #e74c3c;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;希望大佬有空的话帮忙看看，我想知道原因和解决方法😘&lt;/p&gt;
+">轮播图问题</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://romancekami.github.io/post/Gridea的next主题更改设置无法保存/"" data-c="

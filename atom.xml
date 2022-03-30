@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://romancekami.github.io</id>
     <title>romancekami的蜗居</title>
-    <updated>2022-03-30T03:49:51.557Z</updated>
+    <updated>2022-03-30T03:55:21.047Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://romancekami.github.io"/>
     <link rel="self" href="https://romancekami.github.io/atom.xml"/>
@@ -10,6 +10,252 @@
     <logo>https://romancekami.github.io/images/avatar.png</logo>
     <icon>https://romancekami.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, romancekami的蜗居</rights>
+    <entry>
+        <title type="html"><![CDATA[轮播图问题]]></title>
+        <id>https://romancekami.github.io/post/lun-bo-tu-wen-ti/</id>
+        <link href="https://romancekami.github.io/post/lun-bo-tu-wen-ti/">
+        </link>
+        <updated>2022-03-30T03:02:30.000Z</updated>
+        <content type="html"><![CDATA[<p>源码容纳轮播图的<code>&lt;div id=&quot;wrap&quot;&gt;</code>的宽度width是1226px定死的，但我这边因为轮播图是作为网页中的一部分，同时希望兼顾宽屏显示所以宽度width是给的60%，我把js里的往左移动的代码改成了oImgList.style.left = index * -100 + &quot;%&quot;。<br>
+但是最后轮播的效果不对（轮播的区域没法正常显示一张图，会有部分后面的图片），**我怀疑是不是自己的几张图大小是不完全一样的，所以导致了这个问题？**我自己看了css改了一点结果也不太行，所以来向您求助了。<br>
+<img src="https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/202203301143179.jpg" alt="异常图片" loading="lazy"><br>
+html和js的代码如下：</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-cn&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;轮播图&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;lunbotu.css&quot;&gt;
+    &lt;script&gt;
+        window.addEventListener(&quot;load&quot;,function() {
+            // 获取左右按钮和图片列表
+            let oLeft = document.querySelector(&quot;.left&quot;);
+            let oRight = document.querySelector(&quot;.right&quot;);
+            let oImgList = document.querySelector(&quot;.img-list&quot;);
+
+            // 克隆第一张图片
+            let clonefirstImg = oImgList.firstElementChild.cloneNode();
+            // 将第一张图片添加至图片列表的末尾
+            oImgList.appendChild(clonefirstImg);
+
+            // 图片索引 代表当前是第几张图片  index:0代表第一张图片
+            let index = 0;
+
+            // 设置函数节流锁
+            let lock = true;
+            function handleRightBtn() {
+                if (!lock) return;
+                index++;
+                oImgList.style.left = index * -100 + &quot;%&quot;;
+                // 为什么要加过渡? 因为切换到了最后一张假图时会将过渡去掉
+                oImgList.style.transition = &quot;0.5s ease&quot;;
+
+                if (index === 5) {
+                index = 0;
+                setTimeout(() =&gt; {
+                    oImgList.style.left = 0;
+                    // 取消过渡 500毫秒之后切换第一张
+                    oImgList.style.transition = &quot;none&quot;;
+                }, 500);
+                }
+
+                // 设置小圆点的高亮
+                setCircles();
+                // 关锁
+                lock = false;
+                setTimeout(() =&gt; {
+                lock = true;
+                }, 500);
+            }
+
+            // 右按钮的实现
+            oRight.addEventListener(&quot;click&quot;, handleRightBtn);
+
+            // 左按钮的实现  瞬间切换到假图然后拉到真实最后一张图片
+            oLeft.addEventListener(&quot;click&quot;, () =&gt; {
+                if (!lock) return;
+                index--;
+                if (index === -1) {
+                oImgList.style.left = 5 * -100 + &quot;%&quot;;
+                oImgList.style.transition = &quot;none&quot;;
+                index = 4;
+                setTimeout(() =&gt; {
+                    oImgList.style.left = index * -100 + &quot;%&quot;;
+                    oImgList.style.transition = &quot;0.5s ease&quot;;
+                }, 0);
+                } else {
+                oImgList.style.left = index * -100 + &quot;%&quot;;
+                }
+
+                // 设置小圆点的高亮
+                setCircles();
+
+                lock = false;
+                setTimeout(() =&gt; {
+                lock = true;
+                }, 500);
+            });
+
+            // 获取五个小圆点
+            const circles = document.querySelectorAll(&quot;.circle&quot;);
+
+            // 小圆点高亮的显示
+            function setCircles() {
+                for (let i = 0; i &lt; circles.length; i++) {
+                if (i === index) {
+                    circles[i].classList.add(&quot;active&quot;);
+                } else {
+                    circles[i].classList.remove(&quot;active&quot;);
+                }
+                }
+            }
+
+            // 小圆点点击切换图片 使用事件代理
+            const oCircle = document.querySelector(&quot;.circle-list&quot;);
+            oCircle.addEventListener(&quot;click&quot;, (e) =&gt; {
+                // 当我点击小圆点的时候
+                if (e.target.nodeName.toLowerCase() === &quot;li&quot;) {
+                // 当前元素的data-n对应得值 和index一一对应
+                const n = Number(e.target.getAttribute(&quot;data-n&quot;));
+                index = n;
+                setCircles();
+                oImgList.style.transition = &quot;0.5s ease&quot;;
+                oImgList.style.left = index * -100 + &quot;%&quot;;
+                }
+            });
+
+            // 自动轮播
+            let autoplay = setInterval(handleRightBtn, 2000);
+            const oWrap = document.getElementById(&quot;wrap&quot;);
+            // 移入停止轮播
+            oWrap.addEventListener(&quot;mouseenter&quot;, () =&gt; {
+                clearInterval(autoplay);
+            });
+            // 移出继续轮播
+            oWrap.addEventListener(&quot;mouseleave&quot;, () =&gt; {
+                // 设表先关
+                clearInterval(autoplay);
+                autoplay = setInterval(handleRightBtn, 2000);
+            });
+        })      
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 轮播图 --&gt;
+    &lt;div id=&quot;wrap&quot;&gt;
+        &lt;div class=&quot;img-list&quot;&gt;
+            &lt;img src=&quot;https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/202203301016900.png&quot;/&gt;
+            &lt;img src=&quot;https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/202203301016729.jpeg&quot; /&gt;
+            &lt;img src=&quot;https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/202203301017505.jpg&quot; /&gt;
+            &lt;img src=&quot;https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/202203301016872.jpeg&quot; /&gt;
+            &lt;img src=&quot;https://markdowntuchuang.oss-cn-shanghai.aliyuncs.com/picture/202203301017454.jpg&quot;/&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 小箭头 --&gt;
+        &lt;div class=&quot;arrow&quot;&gt;
+            &lt;a href=&quot;javascript:;&quot; class=&quot;left&quot;&gt;&amp;gt;&lt;/a&gt;
+            &lt;a href=&quot;javascript:;&quot; class=&quot;right&quot;&gt;&amp;lt;&lt;/a&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 小圆点 --&gt;
+        &lt;ul class=&quot;circle-list&quot;&gt;
+            &lt;li class=&quot;circle active&quot; data-n=&quot;0&quot;&gt;&lt;/li&gt;
+            &lt;li class=&quot;circle&quot; data-n=&quot;1&quot;&gt;&lt;/li&gt;
+            &lt;li class=&quot;circle&quot; data-n=&quot;2&quot;&gt;&lt;/li&gt;
+            &lt;li class=&quot;circle&quot; data-n=&quot;3&quot;&gt;&lt;/li&gt;
+            &lt;li class=&quot;circle&quot; data-n=&quot;4&quot;&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>css的代码如下：</p>
+<pre><code>/* 轮播图 */
+* {
+    margin: 0;
+    padding: 0;
+}
+#wrap ul {
+    list-style: none;
+}
+#wrap {
+    display: flex;
+    position: relative;
+    background-color: rgb(109, 114, 112);
+    width: 60%;
+    height: 400px;
+    margin-right: 1.4%;
+    margin-left: 1.4%;
+    margin: auto;
+    /* 空间有剩余时扩大轮播图填充剩余 */
+    flex-grow: 1;
+    overflow: hidden;
+}
+#wrap .img-list {
+    display: flex;
+    position: relative;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s ease;
+}
+
+#wrap .img-list img{
+    width: 100%;
+    cursor: pointer;
+}
+
+#wrap a {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: block;
+    width: 40px;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    user-select: none;
+    font-size: 30px;
+    text-align: center;
+    line-height: 70px;
+    text-decoration: none;
+}
+
+#wrap a.left {
+    left: 0;
+}
+
+#wrap a.right {
+    right: 0;
+}
+
+.circle-list {
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 240px;
+    height: 40px;
+    z-index: 8;
+}
+.circle-list &gt; .circle {
+    margin: 0 5px;
+    width: 30px;
+    height: 30px;
+    background-color: #ecf0f1;
+    border-radius: 50%;
+}
+
+.circle-list &gt; .circle.active {
+    background-color: #e74c3c;
+}
+</code></pre>
+<p>希望大佬有空的话帮忙看看，我想知道原因和解决方法😘</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[如何解决Gridea的next主题更改设置无法保存]]></title>
         <id>https://romancekami.github.io/post/Gridea的next主题更改设置无法保存/</id>
@@ -376,38 +622,6 @@ b站的视频实在是太好看了，英语明天再看吧。<br>
 学完前端三剑客，做两个小项目 |完成中
 </code></pre>
 <p>啊？怎么tm都是在完成中啊？一个成果都没有啊？</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://romancekami.github.io/post/hello-gridea/</id>
-        <link href="https://romancekami.github.io/post/hello-gridea/">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
 ]]></content>
     </entry>
 </feed>
